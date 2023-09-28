@@ -19,7 +19,7 @@ export default class Pricing {
     }
 
     set currency(newCurrency) {
-        this._currency = this.validateString(newCurrency, 'currency');
+        this._currency = this.validateCurrency(newCurrency, 'currency');
     }
 
     //method that returns the format amount currency_name (currency_code)
