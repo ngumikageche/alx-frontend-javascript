@@ -1,7 +1,7 @@
 export default class Currency {
     constructor (code, name){
-        this._code = code
-        this._name = name
+        this._code = this.validateString(code, 'code')
+        this._name = this.validateString(name, 'name')
     }
 
     //get and setter for code
@@ -31,4 +31,14 @@ export default class Currency {
         return(`${this._name} (${this._code})`)
         
     }
+
+   // Validation methods
+	validateString(value, attributeName) {
+		if (typeof value !== 'string') {
+			throw new Error(`${attributeName} must be a string`);
+		}
+		return value;
+	}
+
+  
 }
