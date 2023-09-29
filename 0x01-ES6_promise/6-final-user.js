@@ -13,9 +13,9 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
 	return Promise.allSettled(promises)
 		.then(result => {
 		// Transform results into the desired format
-		return results.map(result => ({
+		return result.map(result => ({
 			status: result.status,
-			value: result.tatus === 'fullfilled' ? result.value : result.reason,
+			value: result.status === 'fullfilled' ? result.value : result.reason,
 		}));
 		});
 
